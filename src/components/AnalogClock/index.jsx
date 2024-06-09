@@ -55,14 +55,14 @@ const Hand = styled.div`
 
 const HourHand = styled(Hand)`
   // The height (length) of the hand is relative to the parent container
-  height: 35%;
+  height: 45%;
   z-index: 1;
   &::before {
     content: "";
     // The visible part of the hand is controlled by the height of the pseudo-element,
     // which is 70% relative to the original height set above.
     height: 65%;
-    width: 4px;
+    width: 5px;
     background-color: white;
   }
 `;
@@ -71,7 +71,7 @@ const MinuteHand = styled(Hand)`
   height: 65%;
   &::before {
     content: "";
-    height: 60%;
+    height: 58%;
     width: 3px;
     background-color: white;
   }
@@ -82,7 +82,7 @@ const SecondHand = styled(Hand)`
   &::before {
     content: "";
     height: 50%;
-    width: 2px;
+    width: 1px;
     background-color: white;
   }
 `;
