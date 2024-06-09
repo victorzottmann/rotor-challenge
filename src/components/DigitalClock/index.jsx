@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
+
+import { useTime } from "../../context/TimeContext";
 
 const ClockContainer = styled.div`
   background-color: black;
@@ -10,15 +11,7 @@ const ClockContainer = styled.div`
 `;
 
 const DigitalClock = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTime(new Date());
-
-      return () => clearInterval(intervalId);
-    }, 1000);
-  }, []);
+  const currentTime = useTime();
 
   let hour = currentTime.getHours();
   let minutes = currentTime.getMinutes();
