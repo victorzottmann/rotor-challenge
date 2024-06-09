@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 const ClockContainer = styled.div`
@@ -28,6 +29,7 @@ const Hand = styled.div`
   position: absolute;
   display: flex;
   justify-content: center;
+  transform: rotate(${({ $rotation }) => $rotation });
 `;
 
 const HourHand = styled(Hand)`
@@ -38,8 +40,8 @@ const HourHand = styled(Hand)`
     content: "";
     // The visible part of the hand is controlled by the height of the pseudo-element,
     // which is 70% relative to the original height set above.
-    height: 70%;
-    width: 5px;
+    height: 65%;
+    width: 4px;
     background-color: white;
   }
 `;
@@ -65,11 +67,29 @@ const SecondHand = styled(Hand)`
 `;
 
 const AnalogClock = () => {
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date());
+
+      return () => clearInterval(intervalId);
+    })
+  }, []);
+
+  const hour = currentTime.getHours();
+  const minutes = currentTime.getMinutes();
+  const seconds = currentTime.getSeconds();
+
+  const hourAngle = `${(hour / 12) * 360}deg`;
+  const minutesAngle = `${(minutes / 60) * 360}deg`;
+  const secondsAngle = `${(seconds / 60) * 360}deg`;
+
   return (
     <ClockContainer>
-      <HourHand />
-      <MinuteHand />
-      <SecondHand />
+      <HourHand $rotation={hourAngle} />
+      <MinuteHand $rotation={minutesAngle} />
+      <SecondHand $rotation={secondsAngle} />
     </ClockContainer>
   );
 }
