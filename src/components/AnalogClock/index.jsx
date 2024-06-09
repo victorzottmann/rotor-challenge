@@ -34,8 +34,7 @@ const HourHand = styled(Hand)`
   // The height (length) of the hand is relative to the parent container
   height: 35%;
   z-index: 1;
-  background-color: red;
-  width: 4px; // Just making it visible for reference of the ::before size
+  /* background-color: red; */
   &::before {
     content: "";
     // The visible part of the hand is controlled by the height of the pseudo-element,
@@ -46,10 +45,22 @@ const HourHand = styled(Hand)`
   }
 `;
 
+const MinuteHand = styled(Hand)`
+  height: 65%;
+  width: 3px;
+  &::before {
+    content: "";
+    height: 60%;
+    width: 3px;
+    background-color: white;
+  }
+`;
+
 const AnalogClock = () => {
   return (
     <ClockContainer>
       <HourHand />
+      <MinuteHand />
     </ClockContainer>
   );
 }
