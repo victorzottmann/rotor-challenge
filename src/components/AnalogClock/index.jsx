@@ -2,6 +2,16 @@ import styled from "styled-components";
 
 import { useTime } from "../../context/TimeContext";
 
+/*
+  -- Pseudocode for clock black and white design --
+
+  Similar to the hands, perhaps the white semicircle could be created with a pseudo-element.
+  It's probably easier to make it so the pseudo-element sort of fills in from the bottom.
+
+  And again, since the position of ClockContainer is relative, the pseudo-element would be
+  absolute.
+*/
+
 const ClockContainer = styled.div`
   background-color: black;
   width: 200px;
@@ -11,6 +21,15 @@ const ClockContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden; // Otherwise the gray section would be a rectangle
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 35%;
+    width: 100%;
+    background-color: #d4d4d4;
+  }
 `;
 
 /*
