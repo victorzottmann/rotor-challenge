@@ -15,14 +15,26 @@ const DigitalClock = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentTime(new Date());
-      
+
       return () => clearInterval(intervalId);
     }, 1000);
   }, []);
 
-  const hour = currentTime.getHours();
-  const minutes = currentTime.getMinutes();
-  const seconds = currentTime.getSeconds();
+  let hour = currentTime.getHours();
+  let minutes = currentTime.getMinutes();
+  let seconds = currentTime.getSeconds();
+
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
+
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
 
   const formattedTime = `${hour}:${minutes}:${seconds}`;
   
