@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import DigitalClock from "./components/DigitalClock";
+
 const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -12,7 +14,7 @@ const AppContainer = styled.div`
 const App = () => {
   return (
     <AppContainer>
-      <h1>Hello World</h1>
+      <DigitalClock />
     </AppContainer>
   )
 }
