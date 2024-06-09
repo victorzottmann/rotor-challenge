@@ -26,16 +26,30 @@ const ClockContainer = styled.div`
 
 const Hand = styled.div`
   position: absolute;
-  background-color: white;
-  height: 50%; // currently 100% in relation to the clock container
-  width: 4px;
-  left: 50%;
+  display: flex;
+  justify-content: center;
+`;
+
+const HourHand = styled(Hand)`
+  // The height (length) of the hand is relative to the parent container
+  height: 35%;
+  z-index: 1;
+  background-color: red;
+  width: 4px; // Just making it visible for reference of the ::before size
+  &::before {
+    content: "";
+    // The visible part of the hand is controlled by the height of the pseudo-element,
+    // which is 70% relative to the original height set above.
+    height: 70%;
+    width: 5px;
+    background-color: white;
+  }
 `;
 
 const AnalogClock = () => {
   return (
     <ClockContainer>
-      <Hand />
+      <HourHand />
     </ClockContainer>
   );
 }
