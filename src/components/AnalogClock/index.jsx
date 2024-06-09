@@ -22,6 +22,7 @@ const ClockContainer = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden; // Otherwise the gray section would be a rectangle
+  box-shadow: -7px 11px 12px rgba(0, 0, 0, .4);
   &::before {
     content: "";
     position: absolute;
