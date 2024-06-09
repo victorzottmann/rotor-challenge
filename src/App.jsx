@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import DigitalClock from "./components/DigitalClock";
+import AnalogClock from "./components/AnalogClock";
 
 const AppContainer = styled.div`
   display: flex;
@@ -14,6 +15,7 @@ const AppContainer = styled.div`
 const App = () => {
   return (
     <AppContainer>
+      <AnalogClock />
       <DigitalClock />
     </AppContainer>
   )
