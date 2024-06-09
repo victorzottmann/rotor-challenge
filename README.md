@@ -1,5 +1,8 @@
 # Rotor Challenge
 
+## Result
+![Result of the challenge: an analog clock followed by a digital clock](/public/screenshots/result.png)
+
 ## Notes about the font family
 Since research was not allowed, I didn't browse for a custom font to match the reference design.
 
